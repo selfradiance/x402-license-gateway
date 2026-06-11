@@ -72,17 +72,25 @@ const routes: RoutesConfig = Object.fromEntries(
   })
 );
 
-const facilitator = new HTTPFacilitatorClient(createFacilitatorConfig());
+// App is built lazily on first request so CDP credentials can be passed
+// explicitly from the Worker env binding. Relying on process.env at module
+// scope fails in deployed Workers: the Coinbase helper silently sends no
+// auth header when the env vars are absent, and the facilitator sync then
+// returns zero supported payment kinds.
+function buildApp(env: Env): Hono<{ Bindings: Env }> {
+  const facilitator = new HTTPFacilitatorClient(
+    createFacilitatorConfig(env.CDP_API_KEY_ID, env.CDP_API_KEY_SECRET)
+  );
 
-const app = new Hono<{ Bindings: Env }>();
+  const app = new Hono<{ Bindings: Env }>();
 
-app.use(
-  paymentMiddlewareFromConfig(
-    routes,
-    facilitator,
-    [{ network: ACTIVE.network, server: new ExactEvmScheme() }]
-  )
-);
+  app.use(
+    paymentMiddlewareFromConfig(
+      routes,
+      facilitator,
+      [{ network: ACTIVE.network, server: new ExactEvmScheme() }]
+    )
+  );
 
 // Free discovery route.
 app.get("/", (c) => {
@@ -162,4 +170,14 @@ app.get("/license/:assetId", async (c) => {
   return c.json(envelope);
 });
 
-export default app;
+  return app;
+}
+
+let cachedApp: Hono<{ Bindings: Env }> | undefined;
+
+export default {
+  fetch(request: Request, env: Env, ctx: ExecutionContext): Response | Promise<Response> {
+    if (!cachedApp) cachedApp = buildApp(env);
+    return cachedApp.fetch(request, env, ctx);
+  },
+};
