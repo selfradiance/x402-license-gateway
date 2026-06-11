@@ -1,0 +1,5 @@
+# Copy to .dev.vars (gitignored) for local dev only.
+# NEVER put the real production key here. Generate a throwaway Ed25519 key for local testing.
+PRIVATE_KEY=REPLACE_WITH_THROWAWAY_BASE64_ED25519_PRIVATE_KEY
+CDP_API_KEY_ID=REPLACE
+CDP_API_KEY_SECRET=REPLACE

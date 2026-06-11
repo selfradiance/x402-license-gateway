@@ -1,0 +1,30 @@
+{
+  "name": "x402-license-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "description": "x402-payable license gateway for the Self-Radiance Agent Runtime Safety Kit. Content-public/license-paid: specs stay free, payment returns a signed Ed25519 license receipt.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "@coinbase/x402": "2.1.0",
+    "@x402/core": "2.14.0",
+    "@x402/evm": "2.14.0",
+    "@x402/hono": "2.14.0",
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.16.15",
+    "@cloudflare/workers-types": "^4.20250610.0",
+    "@types/node": "^25.9.3",
+    "typescript": "^5.5.0",
+    "vitest": "^4.1.8",
+    "wrangler": "^4.0.0"
+  }
+}

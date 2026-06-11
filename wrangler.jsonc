@@ -1,0 +1,10 @@
+{
+  "name": "x402-license-gateway",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"]
+  // Secrets (set via `wrangler secret put`, never committed):
+  //   PRIVATE_KEY          raw 32-byte Ed25519 private key, base64 (same key as notary)
+  //   CDP_API_KEY_ID       Coinbase Developer Platform key id
+  //   CDP_API_KEY_SECRET   Coinbase Developer Platform key secret
+}
