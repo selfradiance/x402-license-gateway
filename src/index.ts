@@ -29,14 +29,20 @@ import { buildSignedReceipt, ISSUER, VERIFICATION_KEY } from "./receipt";
 // Network configuration. Flip TESTNET/MAINNET here for Phase 2; nothing else
 // in the file changes.
 // ---------------------------------------------------------------------------
+// EIP-712 domain values are copied verbatim from @x402/evm's
+// DEFAULT_STABLECOINS registry. Note they DIFFER between networks:
+// sepolia USDC is "USDC", mainnet USDC is "USD Coin". The exact-scheme
+// verifier rejects challenges whose extra lacks these.
 const NETWORK_PRESETS = {
   TESTNET: {
     network: "eip155:84532" as const, // base-sepolia
     usdc: "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    eip712: { name: "USDC", version: "2" },
   },
   MAINNET: {
     network: "eip155:8453" as const, // base
     usdc: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    eip712: { name: "USD Coin", version: "2" },
   },
 };
 const ACTIVE = NETWORK_PRESETS.TESTNET;
@@ -62,6 +68,7 @@ const routes: RoutesConfig = Object.fromEntries(
           price: {
             asset: ACTIVE.usdc,
             amount: toAtomicUsdc(entry.price_usd),
+            extra: ACTIVE.eip712,
           },
         },
         description: `Self-Radiance Sovereign Asset License for ${assetId}. Payment returns a signed Ed25519 license receipt. The specification itself is freely available at ${specUrl(assetId)}.`,
