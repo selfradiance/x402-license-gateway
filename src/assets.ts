@@ -1,6 +1,7 @@
 /**
  * Authoritative asset directory for the x402 License Gateway.
- * Prices and SHA-256 fingerprints are synchronized 1:1 with the
+ * Prices and SHA-256 fingerprints re-baselined 2026-06-11 against the
+ * live specs/*.json files, and synchronized 1:1 with the
  * Self-Radiance notary worker ASSET_DIRECTORY (Stripe rail).
  * Any change here must be mirrored there, and vice versa.
  */
@@ -16,87 +17,87 @@ export const SPEC_BASE_URL = "https://selfradiance.github.io/specs";
 export const ASSET_DIRECTORY: Record<string, AssetEntry> = {
   "vq00-zion-skank": {
     price_usd: 1.0,
-    sha256: "601ee2e30c5862a00e5080b15b99031b9c1309dffb743b04a5a2039dd66ba5ca",
+    sha256: "578027543b0e645f663cf9a042b08c84db01e98c55df26e2fab08eb9cf7e56f7",
     version: "1.0.0",
   },
   "vq01-restarules": {
     price_usd: 1.0,
-    sha256: "62b054f37bcfa946c2d59a3c78b2c2513e39bb9a6ce4f28b138b694630e4a479",
+    sha256: "4b355e67369c14365d10411439542d2178971df16a4b7d24b40c91c120d2846e",
     version: "1.0.0",
   },
   "vq02-m2a-handshake": {
     price_usd: 1.0,
-    sha256: "8df91fa387ba9a3d0a173d8c95acd30f72b9e592df602d06e5f9144fd3070e87",
+    sha256: "8989fb16726481527ff5587986d2885bff8974716201b31353489b855aefd396",
     version: "1.0.0",
   },
   "vq03-trust-receipts": {
     price_usd: 7.0,
-    sha256: "16e680b3a5bcd7be622f4ab51c939e32279c71d5c6201b01edc700a5608d9b2e",
+    sha256: "e858201865ef1f03f018b18ae9107b19a8bdff099cee6a290871972c2191e57a",
     version: "1.0.0",
   },
   "vq04-rateguard": {
     price_usd: 4.0,
-    sha256: "13952bc546603f278a3d84bc4466e6370dca98a614a618e58bab37b48d402e45",
+    sha256: "2b7bee8de92164552c002ad67e6230023d1e8affe7ac8a5d83668734e3a45a62",
     version: "1.0.0",
   },
   "vq05-safecard": {
     price_usd: 3.0,
-    sha256: "ee2003eb73620c35e71ce72b7daccc6de6cf5bd5529aac74fb348d5c137f636c",
+    sha256: "139299f626b00e5e593872bce21df0945286f8cd942eb36eb98d421fd5f0acf6",
     version: "1.0.0",
   },
   "vq06-consent-block": {
     price_usd: 5.0,
-    sha256: "d1322f6f92e0ef297e743e3280cf7fba366bf66dfc5f0880e2e578afeb509743",
+    sha256: "eb1eb4a7abe417079105ab0a37e5244376cd80f7e958e20406c320bbcb37e0a3",
     version: "1.0.0",
   },
   "vq07-balance-proof": {
     price_usd: 4.0,
-    sha256: "470810f4d4ae0106328185cf10e1c1d1db12a047387d23b988c75c452393fe23",
+    sha256: "09902631859daede8b6253a57fc5ce47f6aa101b69c25caa1cd81b38d5ca4115",
     version: "1.0.0",
   },
   "vq08-asset-spec": {
     price_usd: 2.0,
-    sha256: "cfc82a68b5d43ef29fa1e0e3cd89f1845c2c1bdbd598629d55a685f70886b272",
+    sha256: "6d414c503463e5fd57152097ccfed805e301c46fd782f8c84062062fba10ac1a",
     version: "1.0.0",
   },
   "vq09-auth-header": {
     price_usd: 7.0,
-    sha256: "3912998da0e68ce543e52877090d44bc4a21e3270b1cf1d8df5db3cef8c65b93",
+    sha256: "00cb211955b18f590a8a8ee53f759bd6f333f25b800a4f4b1a144eee4b849e29",
     version: "1.0.0",
   },
   "vq10-context-anchor": {
     price_usd: 6.0,
-    sha256: "679755e19a36abdb45c03e795535734cb649e66ee95ca172f2e8c2003d151c50",
+    sha256: "a27a543c735b59be550350362c0bd25eea8244936684dca9125d50d901ade23a",
     version: "1.0.0",
   },
   "vq11-loop-shield": {
     price_usd: 8.0,
-    sha256: "62accd4922eb8c2a64ccdf6392036fdc3a4b023991b68ef79ef261519e17a5c3",
+    sha256: "6b93e7797f2c58a197f241945263774c7afbae741d3058fd74658ec133897522",
     version: "1.0.0",
   },
   "vq12-agent-vcard": {
     price_usd: 6.0,
-    sha256: "bb29d8a56fdf2f7459e87eb12f75ad8db8c927b1244d4e1f875399a77354ee9e",
+    sha256: "20a14ad2bbc609f55bea4414b805023f8ed524db5cd32b0fd6e1a625a93afc24",
     version: "1.0.0",
   },
   "vq13-oauth-delegation": {
     price_usd: 7.0,
-    sha256: "0d65e0eee7dc4a7fc9374d0d35f5f01155a388e2f6f7f4a660f02e7713955484",
+    sha256: "0f28c4d468d5d1c49ea54d00d93bf1ef3085fc80b76fa95f17c1ed4b3e7f6cec",
     version: "1.0.0",
   },
   "vq14-state-bridge": {
     price_usd: 6.0,
-    sha256: "b38d228eb6b0b3894b6410016ac0e41e78bfa3316fe457ac6f1447b8e06e2783",
+    sha256: "5caf575b45b60fe781176355b0895761b37c8640e613594a0c4e6eeae8a7b119",
     version: "1.0.0",
   },
   "vq15-scope-discovery": {
     price_usd: 5.0,
-    sha256: "2f7eadfb23ea1e2558bb995a86afa76eecf42decf78e4564dcd81dfa50ef54f8",
+    sha256: "7ccb447f1d4bbb665853912773886060f0c8a9d3e91bbb3af6268c05c64f2ca3",
     version: "1.0.0",
   },
   "vq16-notary-proof": {
     price_usd: 8.0,
-    sha256: "5f35cc7fde35f126fc32a6d4783ef3ebc68a72cb6050b4d4eb90d756c16634b2",
+    sha256: "7c82a6de77da3e8bd97bdb7e9cc74e9f71f5f4c2be51ac00ba9dda5f6238f896",
     version: "1.0.0",
   },
   "vq17-verifiable-intent": {
