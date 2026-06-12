@@ -45,7 +45,7 @@ const NETWORK_PRESETS = {
     eip712: { name: "USD Coin", version: "2" },
   },
 };
-const ACTIVE = NETWORK_PRESETS.TESTNET;
+const ACTIVE = NETWORK_PRESETS.MAINNET;
 
 const PAY_TO = "0x155463b78af48b2db07583c266b18e35bee4eed7";
 const SCHEME = "exact";
